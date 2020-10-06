@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "eerste-app"
+    }
+  },
+  "defaultProject": "eerste-app",
+  "cli": {
+    "analytics": "316cc1c4-1675-4d29-b552-18ea478a5831"
+  }
 }
