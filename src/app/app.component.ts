@@ -10,13 +10,24 @@ import { Land } from 'src/model/land';
   <h1>{{title}}</h1>
             <h2>Mijn landen</h2>
             <ul>
-              <li *ngFor="let l of landen">
+              <li *ngFor="let l of landen" (click)="onSelect(l)">
                 <span>{{l.id}}</span>{{l.name}}
               </li>
-            </ul>`,
+            </ul>
+  <div *ngIf="selectedLand">
+   <h2>{{selectedLand.name}} details!</h2>
+   <div>
+<label>id: </label>{{selectedLand.id}}
+   </div>
+   <div>
+      <label>name: </label>
+      <input [(ngModel)]="selectedLand.name" placeholder="name"/>
+   </div>
+</div>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   static readonly LANDEN: Land[] = [
     { id: 11, name: 'België' },
     { id: 12, name: 'Nederland' },
@@ -32,8 +43,12 @@ export class AppComponent {
 
   title = 'Een lijstje van landen';
   landen = AppComponent.LANDEN;
+  selectedLand: Land;
   land: Land = {
     id: 1,
     name: 'Belgie'
   };
+  onSelect(land: Land): void{
+    this.selectedLand = land;
+  }
 }
