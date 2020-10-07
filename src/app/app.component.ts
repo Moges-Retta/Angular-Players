@@ -9,8 +9,8 @@ import { Land } from 'src/model/land';
   <input [(ngModel)]="land.name" placeholder="name"></div>
   <h1>{{title}}</h1>
             <h2>Mijn landen</h2>
-            <ul>
-              <li *ngFor="let l of landen" (click)="onSelect(l)">
+            <ul class="landen">
+              <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="l===selectedLand">>
                 <span>{{l.id}}</span>{{l.name}}
               </li>
             </ul>
@@ -21,9 +21,24 @@ import { Land } from 'src/model/land';
    </div>
    <div>
       <label>name: </label>
-      <input [(ngModel)]="selectedLand.name" placeholder="name"/>
+      <input [(ngModel)]="selectedLand.name" placeholder="name"
+      [style.background-color]="selectedLand.name===''? 'red' :'white'"/>
    </div>
 </div>`,
+styles: [`
+  .landen li{
+    cursor:pointer;
+  }
+  .selected{
+    background-color:#CFD8DC;
+    color:white;
+  }
+.landen li:hover{
+    background-color: #BBD8DC;
+    color:white
+  }
+`],
+
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
