@@ -10,7 +10,7 @@
                 <span>{{l.id}}</span>{{l.name}}
               </li>
             </ul>
-  <div *ngIf="selectedLand">
+  <!--<div *ngIf="selectedLand">
    <h2>{{selectedLand.name}} details!</h2>
    <div>
 <label>id: </label>{{selectedLand.id}}
@@ -18,4 +18,5 @@
    <div>
       <label>name: </label>
       <input [(ngModel)]="selectedLand.name" placeholder="name"/>
-   </div>
+   </div>-->
+   <app-land-details [land]="selectedLand"></app-land-details>

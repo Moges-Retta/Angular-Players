@@ -10,8 +10,8 @@
     "src/polyfills.ts",
     "src/environments/environment.ts",
     "src/app/app.module.ts",
-    "src/app/app.component.ts"
-
+    "src/app/app.component.ts",
+    "src/app/land-details/land-details.component.ts"
   ],
   "include": [
     "src/**/*.d.ts"
