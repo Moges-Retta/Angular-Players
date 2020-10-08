@@ -1,38 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Land } from 'src/model/land';
+import { LandService } from './land.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })
-export class AppComponent {
-
-  static readonly LANDEN: Land[] = [
-    { id: 11, name: 'België' },
-    { id: 12, name: 'Nederland' },
-    { id: 13, name: 'Engeland' },
-    { id: 14, name: 'Ierland' },
-    { id: 15, name: 'Frankrijk' },
-    { id: 16, name: 'Spanje' },
-    { id: 17, name: 'Portugal' },
-    { id: 18, name: 'Italië' },
-    { id: 19, name: 'Zwitserland' },
-    { id: 20, name: 'Duitsland' }
-  ];
-
+export class AppComponent implements OnInit {
   title = 'Een lijstje van landen';
-  landen = AppComponent.LANDEN;
-  constructor() { }
-  selectedLand: Land;
-  totalVotes: number;
   land: Land = {
     id: 1,
     name: 'Belgie'
   };
+  landen: Land[];
+  constructor(private landService: LandService) { }
+  selectedLand: Land;
+  totalVotes: number;
   onSelect(land: Land): void{
     this.selectedLand = land;
   }
   onValueChange(event: number): void {
     this.totalVotes = event;
   }
+  ngOnInit(): void {
+    this.landen = this.landService.getLanden();
+  }
+
 }

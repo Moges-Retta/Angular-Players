@@ -11,7 +11,9 @@
     "src/environments/environment.ts",
     "src/app/app.module.ts",
     "src/app/app.component.ts",
-    "src/app/land-details/land-details.component.ts"
+    "src/app/land-details/land-details.component.ts",
+    "src/app/land.service.ts",
+    "src/app/mock-landen.ts"
   ],
   "include": [
     "src/**/*.d.ts"
