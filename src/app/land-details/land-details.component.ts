@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Land } from 'src/model/land';
 
 @Component({
@@ -8,4 +8,10 @@ import { Land } from 'src/model/land';
 })
 export class LandDetailsComponent {
 @Input () land: Land;
+@Output() valueChange = new EventEmitter();
+  votes = 0;
+  onClick(): void{
+    this.votes++;
+    this.valueChange.emit(this.votes);
+  }
 }

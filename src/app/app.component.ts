@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Land } from 'src/model/land';
 @Component({
   selector: 'app-root',
@@ -22,12 +22,17 @@ export class AppComponent {
 
   title = 'Een lijstje van landen';
   landen = AppComponent.LANDEN;
+  constructor() { }
   selectedLand: Land;
+  totalVotes: number;
   land: Land = {
     id: 1,
     name: 'Belgie'
   };
   onSelect(land: Land): void{
     this.selectedLand = land;
+  }
+  onValueChange(event: number): void {
+    this.totalVotes = event;
   }
 }

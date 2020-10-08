@@ -19,4 +19,4 @@
       <label>name: </label>
       <input [(ngModel)]="selectedLand.name" placeholder="name"/>
    </div>-->
-   <app-land-details [land]="selectedLand"></app-land-details>
+   <app-land-details [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>
