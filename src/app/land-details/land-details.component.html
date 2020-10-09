@@ -1,10 +1,23 @@
+
 <div *ngIf="land">
-    <h2>{{land.name}} details!</h2>
-    <div><label>id: </label>{{land.id}}
-    </div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="land.name" placeholder="name" />
-    </div>
-    <input type="button" (click)="onClick()" value="Upvote"/>
+  <h2>{{land.name}} details!</h2>
+  <div><label>id: </label>{{land.id}}
   </div>
+  <div>
+    <form>
+      <div class="form-group">
+        <label>landnaam
+          <input class="form-control" [(ngModel)]="land.name" name="name" />
+        </label>
+      </div>
+      <div class="form-group">
+        <label>inwoners
+          <input class="form-control" [(ngModel)]="land.inwoners" name="inwoners" type="number" />
+        </label>
+      </div>
+      <div class="form-group">
+        <button class="btn" (click)="goBack()">go back</button>
+      </div>
+    </form>
+  </div>
+</div>

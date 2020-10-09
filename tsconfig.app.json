@@ -13,6 +13,9 @@
     "src/app/app.component.ts",
     "src/app/land-details/land-details.component.ts",
     "src/app/land.service.ts",
+    "src/app/landen/Landen.component.ts",
+    "src/app/top-inwoners/top-inwoners.component.ts",
+    "src/app/app-routing.module.ts",
     "src/app/mock-landen.ts"
   ],
   "include": [

@@ -1,0 +1,29 @@
+<h2>Mijn landen</h2>
+<ul>
+    <li *ngFor="let l of landen">
+            <a routerLink="/detail/{{l.id}}">
+            <span>{{l.id}}</span> {{l.name}}
+            </a>
+    </li>
+</ul>
+    <!--<h2>Details van {{land.name}}</h2>
+  <div><label>id: </label>{{land.id}}</div>
+  <div><label>naam: </label>{{land.name}}
+  <input [(ngModel)]="land.name" placeholder="name"></div>
+  <h1>Landen</h1>
+            <h2>Mijn landen</h2>
+            <ul class="landen">
+              <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="l===selectedLand">>
+                <span>{{l.id}}</span>{{l.name}}
+              </li>
+            </ul>
+<div *ngIf="selectedLand">
+   <h2>{{selectedLand.name}} details!</h2>
+   <div>
+<label>id: </label>{{selectedLand.id}}
+   </div>
+   <div>
+      <label>name: </label>
+      <input [(ngModel)]="selectedLand.name" placeholder="name"/>
+   </div>-->
+   <!--<app-land-details [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>-->
