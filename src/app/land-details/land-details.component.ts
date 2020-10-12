@@ -23,6 +23,10 @@ export class LandDetailsComponent implements OnInit{
   goBack(): void {
     this.location.back();
   }
+  save(): void {
+    this.landService.updateLand(this.land)
+    .subscribe(() => this.goBack());
+  }
 }
 /*@Input () land: Land;
 @Output() valueChange = new EventEmitter();
