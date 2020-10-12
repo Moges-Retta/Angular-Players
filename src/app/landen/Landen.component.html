@@ -1,7 +1,7 @@
 <h2>Mijn landen</h2>
 <ul>
     <li *ngFor="let l of landen">
-            <a routerLink="/detail/{{l.id}}">
+            <a class="nav-item nav-link" routerLink="/detail/{{l.id}}">
             <span>{{l.id}}</span> {{l.name}}
             </a>
     </li>
