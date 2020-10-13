@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Land } from 'src/model/land';
 import { LandService } from 'src/app/land.service';
 import { Router } from '@angular/router';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-landen',
   templateUrl: 'landen.component.html',
@@ -11,6 +12,7 @@ export class LandenComponent implements OnInit {
 
   landen: Land[];
   nieuwLand: Land = {} as Land; // of = new Land()
+  fatrash = faTrash;
   constructor(private landService: LandService,  private router: Router) { }
   selectedLand: Land;
   totalVotes: number;
@@ -34,6 +36,10 @@ add(): void {
       this.landen.push(land);
       this.nieuwLand = {} as Land; // of = new Land()
     });
+}
+delete(land: Land): void {
+  this.landen  = this.landen.filter(l => l !== land);
+  this.landService.deleteLand(land).subscribe();
 }
 
 }

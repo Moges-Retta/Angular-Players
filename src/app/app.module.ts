@@ -11,7 +11,7 @@ import { TopInwonersComponent } from './top-inwoners/top-inwoners.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     TopInwonersComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
+    BrowserModule, FormsModule, FontAwesomeModule, AppRoutingModule, HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService
     )

@@ -4,6 +4,9 @@
             <a class="nav-item nav-link" routerLink="/detail/{{l.id}}">
             <span>{{l.id}}</span> {{l.name}}
             </a>
+                <a class="btn" (click)="delete(l)">
+                    <fa-icon [icon]="fatrash"></fa-icon>
+                  </a>         
     </li>
 </ul>
 <div>

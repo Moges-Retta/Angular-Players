@@ -54,4 +54,16 @@ addLand(land: Land): Observable<Land> {
     catchError(this.handleError<Land>('addLand'))
   );
 }
+// een user kan een land verwijderen door een landid in de url te typen
+  // of door de delete knop te klikken in de lijst en dus een Land object naar de service opsturen
+  // we gebruiken hier a 'union type', daarmee moet de gebruiker ofwel een land ofwel een getal (id) meegeven
+  deleteLand(land: Land | number): Observable<Land> {
+    // we hebben in elk geval een id nodig
+    const id = typeof land === 'number' ? land : land.id;
+    const url = `${this.landenUrl}/${id}`;
+    return this.http.delete<Land>(url, httpOptions).pipe(
+      catchError(this.handleError<Land>('deleteLand'))
+    );
+  }
+
 }
