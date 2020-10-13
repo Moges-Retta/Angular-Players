@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Land } from 'src/model/land';
+import { Land } from 'src/model/player';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { LandService } from '../land.service';
+import { LandService } from '../player.service';
 
 @Component({
   selector: 'app-land-details',

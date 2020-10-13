@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Land } from 'src/model/land';
-import { LandService } from 'src/app/land.service';
+import { Land } from 'src/model/player';
+import { LandService } from 'src/app/player.service';
 import { Router } from '@angular/router';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({

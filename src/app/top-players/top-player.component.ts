@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LandService } from '../land.service';
-import { Land } from 'src/model/land';
+import { LandService } from '../player.service';
+import { Land } from 'src/model/player';
 
 @Component({
   selector: 'app-top-inwoners',

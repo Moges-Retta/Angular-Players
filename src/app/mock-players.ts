@@ -1,4 +1,4 @@
-import { Land } from 'src/model/Land';
+import { Land } from 'src/model/player';
 
 export const LANDEN: Land[] = [
   { id: 11, name: 'België', inwoners: 11409 },

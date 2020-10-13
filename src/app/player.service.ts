@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { LANDEN } from 'src/app/mock-landen';
-import { Land } from 'src/model/Land';
+import { LANDEN } from 'src/app/mock-players';
+import { Land } from 'src/model/player';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, map} from 'rxjs/operators';

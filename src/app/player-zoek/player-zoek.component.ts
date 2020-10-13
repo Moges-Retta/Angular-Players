@@ -3,8 +3,8 @@ import { Observable, Subject } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
-import { Land } from 'src/model/land';
-import { LandService } from '../land.service';
+import { Land } from 'src/model/player';
+import { LandService } from '../player.service';
 
 @Component({
   selector: 'app-land-zoek',

@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Land } from 'src/model/land';
+import { Land } from 'src/model/player';
 
 export class InMemoryDataService implements InMemoryDbService {
   // tslint:disable-next-line: typedef
