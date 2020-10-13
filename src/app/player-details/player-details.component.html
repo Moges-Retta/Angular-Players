@@ -1,18 +1,37 @@
 
-<div *ngIf="land">
-  <h2>{{land.name}} details!</h2>
-  <div><label>id: </label>{{land.id}}
+<div *ngIf="player">
+  <h2>{{player.name}} details!</h2>
   </div>
   <div>
     <form>
       <div class="form-group">
-        <label>landnaam
-          <input class="form-control" [(ngModel)]="land.name" name="name" />
+        <label>id:
+          <input class="form-control" [(ngModel)]="player.id" name="number" />
         </label>
       </div>
       <div class="form-group">
-        <label>inwoners
-          <input class="form-control" [(ngModel)]="land.inwoners" name="inwoners" type="number" />
+        <label>name:
+          <input class="form-control" [(ngModel)]="player.name" name="text" />
+        </label>
+      </div>
+      <div class="form-group">
+        <label>country:
+          <input class="form-control" [(ngModel)]="player.country" name="country" type="text" />
+        </label>
+      </div>
+      <div class="form-group">
+        <label>age:
+          <input class="form-control" [(ngModel)]="player.age" name="age" type="number" />
+        </label>
+      </div>
+      <div class="form-group">
+        <label>points:
+          <input class="form-control" [(ngModel)]="player.points" name="points" type="number" />
+        </label>
+      </div>
+      <div class="form-group">
+        <label>Tournaments playerd:
+          <input class="form-control" [(ngModel)]="player.tournamentsPlayed" name="tournamentsPlayed" type="number" />
         </label>
       </div>
       <div class="form-group">

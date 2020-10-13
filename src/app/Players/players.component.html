@@ -1,10 +1,10 @@
-<h2>Mijn landen</h2>
+<h2>Mijn Players</h2>
 <ul>
-    <li *ngFor="let l of landen">
-            <a class="nav-item nav-link" routerLink="/detail/{{l.id}}">
-            <span>{{l.id}}</span> {{l.name}}
+    <li *ngFor="let p of players">
+            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
+            <span>{{p.id}}</span> {{p.name}}
             </a>
-                <a class="btn" (click)="delete(l)">
+                <a class="btn" (click)="delete(p)">
                     <fa-icon [icon]="fatrash"></fa-icon>
                   </a>         
     </li>
@@ -12,15 +12,30 @@
 <div>
   <form>
       <div class="form-group">
-          <label>landnaam:
-              <input class="form-control" [(ngModel)]="nieuwLand.name" name="landnaam" />
+          <label>Player name:
+              <input type="text" class="form-control" [(ngModel)]="nieuwPlayer.name" name="playername" />
           </label>
       </div>
       <div class="form-group">
-          <label>Aantal inwoners:
-              <input type="number" class="form-control" [(ngModel)]="nieuwLand.inwoners" name="aantInwoners" />
+          <label>Player country:
+              <input type="text" class="form-control" [(ngModel)]="nieuwPlayer.country" name="country" />
           </label>
       </div>
+      <div class="form-group">
+        <label>Age:
+            <input type="number" class="form-control" [(ngModel)]="nieuwPlayer.age" name="age" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Points:
+            <input type="number" class="form-control" [(ngModel)]="nieuwPlayer.Points" name="points" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Tournaments Played:
+            <input type="number" class="form-control" [(ngModel)]="nieuwPlayer.tournamentsPlayed" name="tournamentsPlayed" />
+        </label>
+    </div>
       <button class="btn btn-primary" (click)="add()">
           add
       </button>

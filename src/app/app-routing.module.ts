@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LandDetailsComponent } from './land-details/land-details.component';
-import { LandenComponent } from './landen/landen.component';
-import { TopInwonersComponent } from './top-inwoners/top-inwoners.component';
+import { PlayerDetailsComponent } from './player-details/player-details.component';
+import { PlayersComponent } from './players/players.component';
+import { TopPlayersComponent } from './top-players/top-players.component';
 
 const routes: Routes = [
-  {path: 'landen', component: LandenComponent},
-  {path: 'top', component: TopInwonersComponent},
+  {path: 'players', component: PlayersComponent},
+  {path: 'top', component: TopPlayersComponent},
   {path: '', redirectTo: '/top', pathMatch: 'full'},
-  {path: 'detail/:id', component: LandDetailsComponent}
-
+  {path: 'detail/:id', component: PlayerDetailsComponent}
 ];
 
 @NgModule({

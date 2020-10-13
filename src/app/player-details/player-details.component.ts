@@ -1,30 +1,30 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Land } from 'src/model/player';
+import { Player } from 'src/model/player';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { LandService } from '../player.service';
+import { PlayerService } from '../player.service';
 
 @Component({
-  selector: 'app-land-details',
-  templateUrl: './land-details.component.html',
-  styleUrls: ['./land-details.component.css']
+  selector: 'app-player-details',
+  templateUrl: './player-details.component.html',
+  styleUrls: ['./player-details.component.css']
 })
-export class LandDetailsComponent implements OnInit{
-  land: Land;
-  constructor(private landService: LandService, private route: ActivatedRoute, private location: Location) { }
+export class PlayerDetailsComponent implements OnInit{
+  player: Player;
+  constructor(private playerService: PlayerService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
-    this.getLand();
+    this.getPlayer();
   }
-  getLand(): void {
+  getPlayer(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.landService.getLand(id).subscribe(land => this.land = land);
+    this.playerService.getPlayer(id).subscribe(player => this.player = player);
   }
   goBack(): void {
     this.location.back();
   }
   save(): void {
-    this.landService.updateLand(this.land)
+    this.playerService.updatePlayer(this.player)
     .subscribe(() => this.goBack());
   }
 }

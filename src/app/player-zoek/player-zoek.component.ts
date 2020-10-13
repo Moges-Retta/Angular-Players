@@ -3,30 +3,27 @@ import { Observable, Subject } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
-import { Land } from 'src/model/player';
-import { LandService } from '../player.service';
+import { Player } from 'src/model/player';
+import { PlayerService } from '../player.service';
 
 @Component({
-  selector: 'app-land-zoek',
-  templateUrl: './land-zoek.component.html',
-  styleUrls: ['./land-zoek.component.css']
+  selector: 'app-player-zoek',
+  templateUrl: './player-zoek.component.html',
+  styleUrls: ['./player-zoek.component.css']
 })
-export class LandZoekComponent implements OnInit {
-  landen$: Observable<Land[]>;
+export class PlayerZoekComponent implements OnInit {
+  players$: Observable<Player[]>;
   private zoekString = new Subject<string>();
-  constructor(private landService: LandService) { }
+  constructor(private playerService: PlayerService) { }
   zoek(term: string): void {
     this.zoekString.next(term);
   }
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    this.landen$ = this.zoekString.pipe (
-      // wacht 300 ms na elke toetsaanslag
+    this.players$ = this.zoekString.pipe (
       debounceTime(300),
-      // negeer als de term hetzelfde is de vorige
       distinctUntilChanged(),
-      // switch naar een nieuwe observable elke keer de term verandert
-      switchMap((term: string) => this.landService.zoekLand(term))
+      switchMap((term: string) => this.playerService.zoekPlayer(term))
     );
   }
 

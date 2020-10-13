@@ -1,45 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { Land } from 'src/model/player';
-import { LandService } from 'src/app/player.service';
+import { Player } from 'src/model/player';
+import { PlayerService } from 'src/app/player.service';
 import { Router } from '@angular/router';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
-  selector: 'app-landen',
-  templateUrl: 'landen.component.html',
-  styleUrls: ['landen.component.css']
+  selector: 'app-players',
+  templateUrl: 'players.component.html',
+  styleUrls: ['players.component.css']
 })
-export class LandenComponent implements OnInit {
+export class PlayersComponent implements OnInit {
 
-  landen: Land[];
-  nieuwLand: Land = {} as Land; // of = new Land()
+  players: Player[];
+  nieuwPlayer: Player = {} as Player; 
   fatrash = faTrash;
-  constructor(private landService: LandService,  private router: Router) { }
-  selectedLand: Land;
-  totalVotes: number;
-  onSelect(land: Land): void{
-    this.selectedLand = land;
+  constructor(private playService: PlayerService,  private router: Router) { }
+  selectedPlayer: Player;
+
+  onSelect(player: Player): void{
+    this.selectedPlayer = player;
   }
-  onValueChange(event: number): void {
-    this.totalVotes = event;
-  }
+
   ngOnInit(): void {
-     // this.landen = this.landService.getLanden();
-    this.landService.getLanden().subscribe(landen => this.landen = landen);
+    this.playService.getPlayers().subscribe(players => this.players = players);
   }
   gotoDetail():void{
-    this.router.navigate(['/detail',this.selectedLand.id]);
+    this.router.navigate(['/detail',this.selectedPlayer.id]);
 }
 add(): void {
-  if (!this.nieuwLand.name.trim() || isNaN(this.nieuwLand.inwoners)) { return; }
-  this.landService.addLand({ name: this.nieuwLand.name, inwoners: this.nieuwLand.inwoners } as Land)
-    .subscribe(land => {
-      this.landen.push(land);
-      this.nieuwLand = {} as Land; // of = new Land()
+  if (!this.nieuwPlayer.name.trim() || !this.nieuwPlayer.name.trim() || isNaN(this.nieuwPlayer.points || this.nieuwPlayer.age || this.nieuwPlayer.tournamentsPlayed)) { return; }
+  this.playService.addPlayer({
+    name: this.nieuwPlayer.name,
+    country: this.nieuwPlayer.country,
+    age: this.nieuwPlayer.age,
+    points: this.nieuwPlayer.points,
+    tournamentsPlayed: this.nieuwPlayer.tournamentsPlayed 
+    } as Player)
+    .subscribe(player => {
+      this.players.push(player);
+      this.nieuwPlayer = {} as Player; // of = new Land()
     });
 }
-delete(land: Land): void {
-  this.landen  = this.landen.filter(l => l !== land);
-  this.landService.deleteLand(land).subscribe();
+delete(player: Player): void {
+  this.players  = this.players.filter(p => p !== player);
+  this.playService.deletePlayer(player).subscribe();
 }
 
 }

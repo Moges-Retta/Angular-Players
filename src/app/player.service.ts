@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LANDEN } from 'src/app/mock-players';
-import { Land } from 'src/model/player';
+import { Player } from 'src/model/player';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, map} from 'rxjs/operators';
@@ -10,67 +9,61 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'applica-tion/j
 @Injectable({
   providedIn: 'root'
 })
-export class LandService {
-  private landenUrl = 'api/landen';
+export class PlayerService {
+  private playersUrl = 'api/players';
   constructor(private http: HttpClient) {}
 
-  getLanden(): Observable<Land[]> {
-    return this.http.get<Land[]>(this.landenUrl)
+  getPlayers(): Observable<Player[]> {
+    return this.http.get<Player[]>(this.playersUrl)
       .pipe(
-        catchError(this.handleError('getLanden', []))
+        catchError(this.handleError('getPlayers', []))
       );
   }
-  getTopLanden(top: number): Observable<Land[]> {
-    return this.http.get<Land[]>(this.landenUrl)
+  getTopPlayers(top: number): Observable<Player[]> {
+    return this.http.get<Player[]>(this.playersUrl)
       .pipe(
         // tslint:disable-next-line: typedef
-        map(landen => landen.sort(function(a, b) { return b.inwoners - a.inwoners; }).slice(0, top)),
-        catchError(this.handleError('getTopLanden', []))
+        map(landen => landen.sort(function(a, b) { return b.points - a.points; }).slice(0, top)),
+        catchError(this.handleError('getTopPlayers', []))
       );
   }
-  getLand(id: number): Observable<Land> {
-    const url = `${this.landenUrl}/${id}`;
-    return this.http.get<Land>(url)
+  getPlayer(id: number): Observable<Player> {
+    const url = `${this.playersUrl}/${id}`;
+    return this.http.get<Player>(url)
       .pipe(
-        catchError(this.handleError<Land>(`getLand id=${id}`))
+        catchError(this.handleError<Player>(`getPlayer id=${id}`))
       );
   }
   // tslint:disable-next-line: typedef
   handleError<T>(operation= 'operation', result?: T) {
-    // TODO: explain generics in Typescript intro!!
     return (error: any): Observable<T> => {
-      // todo beter error logging
       console.log(operation, error);
       return of(result as T);
     };
   }
-  updateLand(land: Land): Observable<any> {
-    return this.http.put(this.landenUrl, land, httpOptions).pipe(
-      catchError(this.handleError<any>('updateLand'))
+  updatePlayer(player: Player): Observable<any> {
+    return this.http.put(this.playersUrl, player, httpOptions).pipe(
+      catchError(this.handleError<any>('updatePlayer'))
     );
 }
-addLand(land: Land): Observable<Land> {
-  return this.http.post<Land>(this.landenUrl, land, httpOptions).pipe(
-    catchError(this.handleError<Land>('addLand'))
+addPlayer(player: Player): Observable<Player> {
+  return this.http.post<Player>(this.playersUrl, player, httpOptions).pipe(
+    catchError(this.handleError<Player>('addPlayer'))
   );
 }
-// een user kan een land verwijderen door een landid in de url te typen
-  // of door de delete knop te klikken in de lijst en dus een Land object naar de service opsturen
-  // we gebruiken hier a 'union type', daarmee moet de gebruiker ofwel een land ofwel een getal (id) meegeven
-  deleteLand(land: Land | number): Observable<Land> {
-    // we hebben in elk geval een id nodig
-    const id = typeof land === 'number' ? land : land.id;
-    const url = `${this.landenUrl}/${id}`;
-    return this.http.delete<Land>(url, httpOptions).pipe(
-      catchError(this.handleError<Land>('deleteLand'))
+  deletePlayer(player: Player | number): Observable<Player> {
+    const id = typeof player === 'number' ? player : player.id;
+    const url = `${this.playersUrl}/${id}`;
+    return this.http.delete<Player>(url, httpOptions).pipe(
+      catchError(this.handleError<Player>('deletePlayer'))
     );
   }
-  zoekLand(zoekString: string): Observable<Land[]>{
+  zoekPlayer(zoekString: string): Observable<Player[]>{
     if (!zoekString.trim()) {
       return of([]);
     }
-    return this.http.get<Land[]>(`${this.landenUrl}/?name=${zoekString}`).pipe(
-      catchError(this.handleError<Land[]>('zoekLand', []))
+    return this.http.get<Player[]>(`${this.playersUrl}/?name=${zoekString}`).pipe(
+      catchError(this.handleError<Player[]>('zoekPlayer', []))
     );
   }
 

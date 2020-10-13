@@ -11,14 +11,14 @@
     "src/environments/environment.ts",
     "src/app/app.module.ts",
     "src/app/app.component.ts",
-    "src/app/land-details/land-details.component.ts",
-    "src/app/land.service.ts",
-    "src/app/landen/Landen.component.ts",
-    "src/app/top-inwoners/top-inwoners.component.ts",
+    "src/app/player-details/player-details.component.ts",
+    "src/app/player.service.ts",
+    "src/app/players/players.component.ts",
+    "src/app/top-players/top-players.component.ts",
     "src/app/app-routing.module.ts",
     "src/app/in-memory-data.service.ts",
-    "src/app/land-zoek/land-zoek.component.ts",
-    "src/app/mock-landen.ts"
+    "src/app/player-zoek/player-zoek.component.ts",
+    "src/app/mock-players.ts"
   ],
   "include": [
     "src/**/*.d.ts"
