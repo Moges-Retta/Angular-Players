@@ -1,6 +1,7 @@
-<h3 class="h3">Top Players (# points)</h3>
-<ul class="list-group">
+<h3 class="h3">Top Players</h3>
+<ol class="list-group">
     <li class="list-group-item" *ngFor="let player of players">
-        <p>{{player.name}}</p>
+        <a class="nav-item nav-link" routerLink="/detail/{{player.id}}">{{player.name}}</a>
     </li>
-</ul>
+</ol>
+<app-player-zoek></app-player-zoek>

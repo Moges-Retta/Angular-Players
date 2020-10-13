@@ -11,7 +11,8 @@ import { PlayerService } from '../player.service';
 })
 export class PlayerDetailsComponent implements OnInit{
   player: Player;
-  constructor(private playerService: PlayerService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private playerService: PlayerService, private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit(): void {
     this.getPlayer();

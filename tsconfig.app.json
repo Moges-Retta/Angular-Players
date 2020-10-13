@@ -17,9 +17,8 @@
     "src/app/top-players/top-players.component.ts",
     "src/app/app-routing.module.ts",
     "src/app/in-memory-data.service.ts",
-    "src/app/player-zoek/player-zoek.component.ts",
-    "src/app/mock-players.ts"
-  ],
+    "src/app/player-zoek/player-zoek.component.ts"
+    ],
   "include": [
     "src/**/*.d.ts"
   ]

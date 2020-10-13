@@ -1,17 +1,15 @@
-
 <div *ngIf="player">
-  <h2>{{player.name}} details!</h2>
-  </div>
+  <span class="h2">{{player.name}} details!</span>
   <div>
     <form>
       <div class="form-group">
         <label>id:
-          <input class="form-control" [(ngModel)]="player.id" name="number" />
+          <input class="form-control" [(ngModel)]="player.id" name="id" type="number" readonly/>
         </label>
       </div>
       <div class="form-group">
         <label>name:
-          <input class="form-control" [(ngModel)]="player.name" name="text" />
+          <input class="form-control" [(ngModel)]="player.name" name="name" type="text" />
         </label>
       </div>
       <div class="form-group">
@@ -35,9 +33,9 @@
         </label>
       </div>
       <div class="form-group">
-        <button class="btn" (click)="goBack()">go back</button>
+        <button class="btn btn-primary mr-3" (click)="goBack()">Back</button>
+        <button class="btn btn-primary mr-3" (click)="save()">Save</button>
       </div>
-      <button (click)="save()">Save</button>
     </form>
-  </div>
+ </div>
 </div>

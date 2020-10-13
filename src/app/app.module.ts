@@ -4,22 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandDetailsComponent } from './land-details/land-details.component';
-import { LandService } from './player.service';
-import { LandenComponent } from './landen/landen.component';
-import { TopInwonersComponent } from './top-inwoners/top-inwoners.component';
+import { PlayerDetailsComponent } from './player-details/player-details.component';
+import { PlayerService } from './player.service';
+import { PlayersComponent } from './players/players.component';
+import { TopPlayersComponent } from './top-players/top-players.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LandZoekComponent } from './land-zoek/land-zoek.component';
+import { PlayerZoekComponent } from './player-zoek/player-zoek.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LandDetailsComponent,
-    LandenComponent,
-    TopInwonersComponent,
-    LandZoekComponent
+    PlayerDetailsComponent,
+    PlayersComponent,
+    TopPlayersComponent,
+    PlayerZoekComponent
   ],
   imports: [
     BrowserModule, FormsModule, FontAwesomeModule, AppRoutingModule, HttpClientModule,
@@ -27,7 +27,7 @@ import { LandZoekComponent } from './land-zoek/land-zoek.component';
       InMemoryDataService
     )
   ],
-  providers: [LandService],
+  providers: [PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

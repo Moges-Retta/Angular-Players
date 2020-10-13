@@ -1,15 +1,7 @@
-<h2>Mijn Players</h2>
-<ul>
-    <li *ngFor="let p of players">
-            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
-            <span>{{p.id}}</span> {{p.name}}
-            </a>
-                <a class="btn" (click)="delete(p)">
-                    <fa-icon [icon]="fatrash"></fa-icon>
-                  </a>         
-    </li>
-</ul>
-<div>
+<p class="h2">Players</p>
+<button class="btn btn-primary" (click)="toggle()" id="bt">{{buttonName}}
+</button> 
+<div *ngIf="show">
   <form>
       <div class="form-group">
           <label>Player name:
@@ -28,7 +20,7 @@
     </div>
     <div class="form-group">
         <label>Points:
-            <input type="number" class="form-control" [(ngModel)]="nieuwPlayer.Points" name="points" />
+            <input type="number" class="form-control" [(ngModel)]="nieuwPlayer.points" name="points" />
         </label>
     </div>
     <div class="form-group">
@@ -42,24 +34,42 @@
   </form>
 </div>
 
-    <!--<h2>Details van {{land.name}}</h2>
-  <div><label>id: </label>{{land.id}}</div>
-  <div><label>naam: </label>{{land.name}}
-  <input [(ngModel)]="land.name" placeholder="name"></div>
-  <h1>Landen</h1>
-            <h2>Mijn landen</h2>
-            <ul class="landen">
-              <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="l===selectedLand">>
-                <span>{{l.id}}</span>{{l.name}}
-              </li>
-            </ul>
-<div *ngIf="selectedLand">
-   <h2>{{selectedLand.name}} details!</h2>
-   <div>
-<label>id: </label>{{selectedLand.id}}
-   </div>
-   <div>
-      <label>name: </label>
-      <input [(ngModel)]="selectedLand.name" placeholder="name"/>
-   </div>-->
-   <!--<app-land-details [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>-->
+
+<table class="table-hover">
+    <tr *ngFor="let p of players">
+        <td>
+            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
+                <span>{{p.id}}</span>
+            </a>
+        </td>
+        <td>
+            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
+                <span>{{p.name}}</span> 
+            </a>
+        </td>
+        <td>
+            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
+                <span>{{p.country}}</span>
+            </a>
+        </td>
+        <td>
+            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
+                <span>{{p.age}}</span>
+            </a>
+        </td>
+        <td>
+            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
+                <span>{{p.points}}</span>
+            </a>
+        </td>
+        <td>
+            <a class="nav-item nav-link" routerLink="/detail/{{p.id}}">
+                <span>{{p.tournamentsPlayed}}</span>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-danger" (click)="delete(p)">x
+            </a>  
+        </td>
+    </tr>
+</table>

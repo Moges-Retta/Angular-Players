@@ -3,9 +3,9 @@ import { PlayerService } from '../player.service';
 import { Player } from 'src/model/player';
 
 @Component({
-  selector: 'app-top-inwoners',
-  templateUrl: './top-inwoners.component.html',
-  styleUrls: ['./top-inwoners.component.css']
+  selector: 'app-top-players',
+  templateUrl: './top-players.component.html',
+  styleUrls: ['./top-players.component.css']
 })
 export class TopPlayersComponent implements OnInit {
   players: Player[] = [];
