@@ -47,6 +47,11 @@ export class LandService {
   updateLand(land: Land): Observable<any> {
     return this.http.put(this.landenUrl, land, httpOptions).pipe(
       catchError(this.handleError<any>('updateLand'))
-);
+    );
+}
+addLand(land: Land): Observable<Land> {
+  return this.http.post<Land>(this.landenUrl, land, httpOptions).pipe(
+    catchError(this.handleError<Land>('addLand'))
+  );
 }
 }

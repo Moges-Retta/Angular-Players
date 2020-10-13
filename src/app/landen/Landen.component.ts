@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LandenComponent implements OnInit {
 
   landen: Land[];
+  nieuwLand: Land = {} as Land; // of = new Land()
   constructor(private landService: LandService,  private router: Router) { }
   selectedLand: Land;
   totalVotes: number;
@@ -26,4 +27,13 @@ export class LandenComponent implements OnInit {
   gotoDetail():void{
     this.router.navigate(['/detail',this.selectedLand.id]);
 }
+add(): void {
+  if (!this.nieuwLand.name.trim() || isNaN(this.nieuwLand.inwoners)) { return; }
+  this.landService.addLand({ name: this.nieuwLand.name, inwoners: this.nieuwLand.inwoners } as Land)
+    .subscribe(land => {
+      this.landen.push(land);
+      this.nieuwLand = {} as Land; // of = new Land()
+    });
+}
+
 }

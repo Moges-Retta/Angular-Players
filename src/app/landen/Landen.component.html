@@ -6,6 +6,24 @@
             </a>
     </li>
 </ul>
+<div>
+  <form>
+      <div class="form-group">
+          <label>landnaam:
+              <input class="form-control" [(ngModel)]="nieuwLand.name" name="landnaam" />
+          </label>
+      </div>
+      <div class="form-group">
+          <label>Aantal inwoners:
+              <input type="number" class="form-control" [(ngModel)]="nieuwLand.inwoners" name="aantInwoners" />
+          </label>
+      </div>
+      <button class="btn btn-primary" (click)="add()">
+          add
+      </button>
+  </form>
+</div>
+
     <!--<h2>Details van {{land.name}}</h2>
   <div><label>id: </label>{{land.id}}</div>
   <div><label>naam: </label>{{land.name}}
