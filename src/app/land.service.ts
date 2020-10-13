@@ -65,5 +65,13 @@ addLand(land: Land): Observable<Land> {
       catchError(this.handleError<Land>('deleteLand'))
     );
   }
+  zoekLand(zoekString: string): Observable<Land[]>{
+    if (!zoekString.trim()) {
+      return of([]);
+    }
+    return this.http.get<Land[]>(`${this.landenUrl}/?name=${zoekString}`).pipe(
+      catchError(this.handleError<Land[]>('zoekLand', []))
+    );
+  }
 
 }

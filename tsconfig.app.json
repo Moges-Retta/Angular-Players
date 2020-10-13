@@ -17,6 +17,7 @@
     "src/app/top-inwoners/top-inwoners.component.ts",
     "src/app/app-routing.module.ts",
     "src/app/in-memory-data.service.ts",
+    "src/app/land-zoek/land-zoek.component.ts",
     "src/app/mock-landen.ts"
   ],
   "include": [
