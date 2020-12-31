@@ -1,3 +1,4 @@
+![](https://github.com/Moges-Retta/Angular-Players/blob/master/Capture.PNG)
 # EersteApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
